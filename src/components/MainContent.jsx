@@ -11,15 +11,12 @@ const Main = () => {
         }
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem('entries', JSON.stringify(entries));
-    }, [entries])
-
     const deleteEntry = (id) => {
         const entryExists = entries.some(entry => entry.id === id);
         if (entryExists) {
             const updatedEntries = entries.filter(entry => entry.id !== id);
             setEntries(updatedEntries);
+            localStorage.setItem('entries', JSON.stringify(updatedEntries));
         }
     }
 

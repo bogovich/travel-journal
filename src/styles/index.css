@@ -72,8 +72,18 @@ main {
 .entry {
   display: flex;
   gap: 1.5rem;
-  margin-bottom: 1rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e2e2e2;
   max-width: 550px;
+  position: relative;
+}
+
+.entry:first-child {
+  padding-top: 0;
+}
+
+.entry:last-child {
+  border-bottom: none;
 }
 
 .entry__image {
@@ -141,4 +151,38 @@ main {
   color: #2B283A;
   line-height: 1.5;
   font-size: 0.85rem;
+}
+
+.entry__actions {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.entry:first-child .entry__actions {
+  top: 0;
+}
+
+.entry__actions-btn {
+  padding: 0.4rem;
+  border: 1px solid #35526d;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #35526d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: background-color 0.3s ease;
+}
+
+.entry__actions-btn:hover {
+  background-color: #f2f2f2;
 }

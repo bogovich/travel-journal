@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import {useEffect} from "react";
 import ReactPortal from "./ReactPortal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import './Modal.css';
 const Modal = ({ children, isOpen, onClose }) => {
   useEffect(() => {
@@ -25,12 +27,16 @@ const Modal = ({ children, isOpen, onClose }) => {
     <ReactPortal id="portal">
       <div className={`modal ${isOpen ? "is-active" : ""}`}>
         <div className="modal-background" onClick={onClose}></div>
-        <div className="modal-content">{children}</div>
-        <button
+        <div className="modal-content">
+          {children}
+          <span
           className="modal-close is-large"
           aria-label="close"
           onClick={onClose}
-        ></button>
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </span>
+        </div>
       </div>
     </ReactPortal>
   );

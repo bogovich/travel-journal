@@ -172,7 +172,7 @@ main {
   border-radius: 6px;
   background-color: #fff;
   color: #35526d;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
 
@@ -185,4 +185,30 @@ main {
 
 .entry__actions-btn:hover {
   background-color: #f2f2f2;
+}
+
+.add-entry__form-group:has(.add-entry__form-btn) {
+  grid-column: 2;
+}
+
+.add-entry__form-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #35526d;
+  color: #e4e1e1;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  float: right;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: background-color 0.3s ease;
+}
+
+.add-entry__form-btn:hover {
+  background-color: #2b4c63;
 }

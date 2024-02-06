@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot, faXmark, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faPenToSquare, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
+
 import PropTypes from 'prop-types';
 
-const Entry = ({id, onDelete, image, country, title, startDate, endDate, description}) => {
+const Entry = ({id, onDelete, onUpdate, image, country, title, startDate, endDate, description}) => {
 
     const formatDate = (date) => {
         return new Date(date).toLocaleDateString('en-GB', { year:"numeric", month:"short", day:"numeric"});
@@ -27,8 +28,8 @@ const Entry = ({id, onDelete, image, country, title, startDate, endDate, descrip
                 <p className="entry__content-description">{description}</p>        
             </div>
             <div className="entry__actions">
-                <button className="entry__actions-btn"><FontAwesomeIcon icon={faPenToSquare} fixedWidth /></button>
-                <button className="entry__actions-btn"><FontAwesomeIcon icon={faXmark} fixedWidth onClick={() => {onDelete(id)}}/></button>
+                <button className="entry__actions-btn"><FontAwesomeIcon icon={faPenToSquare} fixedWidth onClick={() => {onUpdate(id)}}/></button>
+                <button className="entry__actions-btn"><FontAwesomeIcon icon={faCircleMinus} fixedWidth onClick={() => {onDelete(id)}}/></button>
             </div>
         </div>
     );
@@ -37,6 +38,7 @@ const Entry = ({id, onDelete, image, country, title, startDate, endDate, descrip
 Entry.propTypes = {
     id: PropTypes.number.isRequired,
     onDelete: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
     image: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

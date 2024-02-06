@@ -1,11 +1,18 @@
 import {useState} from "react";
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobeEurope, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal.jsx';
+import EntryAddForm from "./EntryAddForm.jsx";
 
 
-const NavBar = () => {
+const NavBar = ({addEntry}) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleAddEntry = (entry) => {
+        addEntry(entry);
+        setIsOpen(false);
+    }
 
     return (
         <nav>
@@ -19,11 +26,15 @@ const NavBar = () => {
                     <FontAwesomeIcon icon={faPlusCircle} className='nav__actions-btn-img'/>
                 </button>
             </div>
-            <Modal onClose={() => setIsOpen(false)} isOpen={isOpen}>
-                This is Modal Content!
+            <Modal className="add-entry" onClose={() => setIsOpen(false)} isOpen={isOpen}>
+                <EntryAddForm addEntry={handleAddEntry} />
             </Modal>
         </nav>
     )
+}
+
+NavBar.propTypes = {
+    addEntry: PropTypes.func.isRequired
 }
 
 export default NavBar;

@@ -1,34 +1,21 @@
-import {useState, useEffect} from "react";
 import Entry from "./Entry.jsx";
-
-const MainContent = () => {
-    const [entries, setEntries] = useState([]);
-
-    useEffect(() => {
-        const storedEntries = JSON.parse(localStorage.getItem('entries'));
-        if (storedEntries) {
-            setEntries(storedEntries);
-        }
-    }, [])
-
-    const deleteEntry = (id) => {
-        const entryExists = entries.some(entry => entry.id === id);
-        if (entryExists) {
-            const updatedEntries = entries.filter(entry => entry.id !== id);
-            setEntries(updatedEntries);
-            localStorage.setItem('entries', JSON.stringify(updatedEntries));
-        }
-    }
+import PropTypes from "prop-types";
 
 
-
+const MainContent = ({entries, deleteEntry, updateEntry}) => {
     return (
         <main>
             <div className="main-container">
-                {entries.map((entry) => <Entry key={entry.id} {...entry} onDelete={deleteEntry}/>)}
+                {entries.map((entry) => <Entry key={entry.id} {...entry} onUpdate={updateEntry} onDelete={deleteEntry}/>)}
             </div>
         </main>
     );
+}
+
+MainContent.propTypes = {
+    entries: PropTypes.array.isRequired,
+    deleteEntry: PropTypes.func.isRequired,
+    updateEntry: PropTypes.func.isRequired
 }
 
 export default MainContent;

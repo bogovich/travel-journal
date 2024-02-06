@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import Entry from "./Entry.jsx";
 
-const Main = () => {
+const MainContent = () => {
     const [entries, setEntries] = useState([]);
 
     useEffect(() => {
@@ -31,4 +31,4 @@ const Main = () => {
     );
 }
 
-export default Main;
+export default MainContent;

@@ -45,7 +45,7 @@ const EntryUpdateForm = ({ updateEntry, entry }) => {
                         <input onChange={handleChange} value={formData.image} type="url" id="image" name="image" className="add-entry__form-input" required/>
                     </div>
                     <div className="add-entry__form-group">
-                        <button className="add-entry__form-btn">Add</button>
+                        <button className="add-entry__form-btn">Update</button>
                     </div>
                 </form>
         </>

@@ -15,8 +15,9 @@
 .modal-content {
   width: 550px;
   max-width: 550px;
-  height: 450px;
-  max-height: 450px;
+  height: 550px;
+  max-height: 550px;
+  border-radius: 8px;
   background-color: #f6f9ff;
   color: #35526d;
   display: flex;
@@ -77,6 +78,10 @@
     right: 15px;
     cursor: pointer;
     color: #35526d;
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 0;
+}
+
+.modal-close:hover {
+  color: #174570;
 }

@@ -226,3 +226,35 @@ main {
 .add-entry__form-group:has(#image) {
   grid-column: span 2;
 }
+
+@media (max-width: 650px) {
+  .entry {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .entry__image {
+    width: 100%;
+    height: 200px;
+    flex-shrink: 1;
+  }
+
+  .entry__actions {
+    top: 2.5rem;
+    right: 0.75rem;
+  }
+
+  .entry:first-child .entry__actions {
+    top: 0.5rem;
+  }
+
+  .add-entry__title {
+    margin-top: 0;
+    padding-top: 5px;
+  }
+
+  .add-entry__form-btn {
+    margin-top: 1rem;
+  }
+
+}

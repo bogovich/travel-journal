@@ -85,3 +85,36 @@
 .modal-close:hover {
   color: #174570;
 }
+
+@media (max-width: 650px) {
+  .modal-content {
+    width: 95%;
+    height: fit-content;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .modal-content label {
+    margin-bottom: 3px;
+  }
+
+  .modal-content input {
+    height: auto;
+  }
+
+  .modal-content input,
+  .modal-content textarea{
+    margin-bottom: 10px;
+  }
+
+  .modal-content textarea {
+    height: 80px;
+    overflow: scroll;
+  }
+}

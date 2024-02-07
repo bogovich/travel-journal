@@ -18,7 +18,7 @@ const EntryUpdateForm = ({ updateEntry, entry }) => {
 
     return (
         <>
-                <h2 className="add-entry__title">Add Entry</h2>
+                <h2 className="add-entry__title">Update Entry</h2>
                 <form className="add-entry__form" onSubmit={handleSubmit}>
                     <div className="add-entry__form-group">
                         <label htmlFor="country" className="add-entry__form-label">Country</label>

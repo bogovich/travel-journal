@@ -21,22 +21,22 @@
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "LIGHT";
+    content: "DARK";
     padding-left: 10px;
     background-color: #f5f5f5; color: #424141;
 }
 .onoffswitch-inner:after {
-    content: "DARK";
+    content: "LIGHT";
     padding-right: 10px;
-    background-color: #6d6767; color: #f5f5f5;
+    background-color: var(--color-secondary); color: #f5f5f5;
     text-align: right;
 }
 .onoffswitch-switch {
     display: block; width: 20px; margin: 6px;
-    background: #FFFFFF;
+    background: #ffd700;
     position: absolute; top: 0; bottom: 0;
     right: 56px;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 1px solid #999999; border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
@@ -44,5 +44,5 @@
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 1px; 
-    background: #edd650;
+    background: #778899;
 }

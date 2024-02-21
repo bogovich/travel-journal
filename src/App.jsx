@@ -6,6 +6,7 @@ import { ThemeContext } from './contexts/theme-context'
 import data from "./data.js"
 import Modal from './components/Modal'
 import EntryUpdateForm from './components/EntryUpdateForm'
+import Entry from './components/Entry.jsx'
 
 function App() {
 
@@ -50,14 +51,15 @@ function App() {
   }
 
   const { isDark } = useContext(ThemeContext)
+  const entryArray = entries.map((entry) => <Entry key={entry.id} {...entry} onUpdate={handleUpdateEntry} onDelete={deleteEntry}/>);
 
   return (
     <div className={`theme ${isDark ? 'dark-theme' : 'light-theme'}`}>
       <header>
         <NavBar addEntry={addEntry}/>
       </header>
-      <MainContent entries={entries} deleteEntry={deleteEntry} updateEntry={handleUpdateEntry}/>
-      <Modal className="add-entry" onClose={() => setIsOpen(false)} isOpen={isOpen}>
+      <MainContent>{entryArray}</MainContent>
+      <Modal className="add-entry" onClose={() => setIsOpen(false)} isOpen={isOpen} isDark={isDark}>
                 <EntryUpdateForm updateEntry={updateEntry} entry={entryToUpdate}/>
       </Modal>
     </div>

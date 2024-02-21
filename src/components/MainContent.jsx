@@ -1,21 +1,21 @@
-import Entry from "./Entry.jsx";
 import PropTypes from "prop-types";
 
 
-const MainContent = ({entries, deleteEntry, updateEntry}) => {
+const MainContent = ({children}) => {
     return (
         <main>
             <div className="main-container">
-                {entries.map((entry) => <Entry key={entry.id} {...entry} onUpdate={updateEntry} onDelete={deleteEntry}/>)}
+                {children}
             </div>
         </main>
     );
 }
 
 MainContent.propTypes = {
-    entries: PropTypes.array.isRequired,
-    deleteEntry: PropTypes.func.isRequired,
-    updateEntry: PropTypes.func.isRequired
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired
 }
 
 export default MainContent;

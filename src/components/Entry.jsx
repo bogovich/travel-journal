@@ -28,8 +28,8 @@ const Entry = ({id, onDelete, onUpdate, image, country, title, startDate, endDat
                 <p className="entry__content-description">{description}</p>        
             </div>
             <div className="entry__actions">
-                <button className="entry__actions-btn"><FontAwesomeIcon icon={faPenToSquare} fixedWidth onClick={() => {onUpdate(id)}}/></button>
-                <button className="entry__actions-btn"><FontAwesomeIcon icon={faCircleMinus} fixedWidth onClick={() => {onDelete(id)}}/></button>
+                <button className="entry__actions-btn" onClick={() => {onUpdate(id)}}><FontAwesomeIcon icon={faPenToSquare} fixedWidth/></button>
+                <button className="entry__actions-btn" onClick={() => {onDelete(id)}}><FontAwesomeIcon icon={faCircleMinus} fixedWidth/></button>
             </div>
         </div>
     );

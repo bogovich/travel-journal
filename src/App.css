@@ -9,6 +9,8 @@ nav {
   
     font-size: 1.15rem;
     color: var(--color-secondary);
+
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .nav__logo {
@@ -56,6 +58,8 @@ nav {
     align-items: center;
     background-color: var(--main-background);
     min-height: calc(100vh - 50px);
+
+    transition: background-color 0.3s ease;
   }
   
   .entry {
@@ -66,6 +70,8 @@ nav {
     width: 550px;
     max-width: 550px;
     position: relative;
+
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
   
   .entry:first-child {
@@ -191,7 +197,7 @@ nav {
     border: none;
     border-radius: 6px;
     background-color: var(--color-primary);
-    color: #ffffff;
+    color: var(--color-secondary);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;

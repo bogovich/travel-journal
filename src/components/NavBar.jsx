@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
+import { ThemeContext } from '../contexts/theme-context'
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobeEurope, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,7 @@ import SwitchButton from "./SwitchButton.jsx";
 
 const NavBar = ({addEntry}) => {
     const [isOpen, setIsOpen] = useState(false);
+    const { isDark } = useContext(ThemeContext)
 
     const handleAddEntry = (entry) => {
         addEntry(entry);
@@ -28,7 +30,7 @@ const NavBar = ({addEntry}) => {
                     <FontAwesomeIcon icon={faPlusCircle} className='nav__actions-btn-img'/>
                 </button>
             </div>
-            <Modal className="add-entry" onClose={() => setIsOpen(false)} isOpen={isOpen}>
+            <Modal className="add-entry" onClose={() => setIsOpen(false)} isOpen={isOpen} isDark={isDark}>
                 <EntryAddForm addEntry={handleAddEntry} />
             </Modal>
         </nav>

@@ -21,19 +21,19 @@
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "DARK";
+    content: "LIGHT";
     padding-left: 10px;
     background-color: #f5f5f5; color: #424141;
 }
 .onoffswitch-inner:after {
-    content: "LIGHT";
+    content: "DARK";
     padding-right: 10px;
     background-color: var(--color-secondary); color: #f5f5f5;
     text-align: right;
 }
 .onoffswitch-switch {
     display: block; width: 20px; margin: 6px;
-    background: #ffd700;
+    background: #778899;
     position: absolute; top: 0; bottom: 0;
     right: 56px;
     border: 1px solid #999999; border-radius: 20px;
@@ -44,5 +44,5 @@
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 1px; 
-    background: #778899;
+    background: #ffd700;
 }

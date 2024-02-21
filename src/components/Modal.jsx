@@ -4,7 +4,8 @@ import ReactPortal from "./ReactPortal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import './Modal.css';
-const Modal = ({ children, isOpen, onClose }) => {
+import '../../index.css'
+const Modal = ({ children, isOpen, onClose, isDark }) => {
   useEffect(() => {
     const closeOnEscapeKey = e => e.key === "Escape" ? onClose() : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
@@ -25,7 +26,7 @@ const Modal = ({ children, isOpen, onClose }) => {
 
   return (
     <ReactPortal id="portal">
-      <div className={`modal ${isOpen ? "is-active" : ""}`}>
+      <div className={`modal ${isOpen ? "is-active" : ""} ${isDark ? 'dark-theme' : 'light-theme'}`}>
         <div className="modal-background" onClick={onClose}></div>
         <div className="modal-content">
           {children}
@@ -46,6 +47,7 @@ Modal.propTypes = {
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  isDark: PropTypes.bool.isRequired
 };
 
 export default Modal;

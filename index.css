@@ -17,7 +17,7 @@ body {
   color: var(--color-text);
 }
 
-.theme.dark-theme {
+.dark-theme {
   --color-primary: #B0AEAC;
   --color-secondary: #051d27;
   --color-secondary-dark: #0d303f;
@@ -31,7 +31,7 @@ body {
   
 }
 
-.theme.light-theme {
+.light-theme {
   --color-primary: #384A5D;
   --color-secondary: #F6F4F4;
   --color-secondary-dark: #cec7c7;

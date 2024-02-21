@@ -1,11 +1,11 @@
-import {useState} from 'react';
 import './App.css'
 import NavBar from './components/NavBar'
 import MainContent from './components/MainContent'
-import { useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { ThemeContext } from './contexts/theme-context'
 import data from "./data.js"
 import Modal from './components/Modal'
-import EntryUpdateForm from './components/EntryUpdateForm';
+import EntryUpdateForm from './components/EntryUpdateForm'
 
 function App() {
 
@@ -49,8 +49,10 @@ function App() {
     setEntryToUpdate(entry);
   }
 
+  const { isDark } = useContext(ThemeContext)
+
   return (
-    <>
+    <div className={`theme ${isDark ? 'dark-theme' : 'light-theme'}`}>
       <header>
         <NavBar addEntry={addEntry}/>
       </header>
@@ -58,7 +60,7 @@ function App() {
       <Modal className="add-entry" onClose={() => setIsOpen(false)} isOpen={isOpen}>
                 <EntryUpdateForm updateEntry={updateEntry} entry={entryToUpdate}/>
       </Modal>
-    </>
+    </div>
   )
 }
 

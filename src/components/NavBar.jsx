@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobeEurope, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal.jsx';
 import EntryAddForm from "./EntryAddForm.jsx";
+import SwitchButton from "./SwitchButton.jsx";
 
 
 const NavBar = ({addEntry}) => {
@@ -20,6 +21,7 @@ const NavBar = ({addEntry}) => {
                 <FontAwesomeIcon icon={faGlobeEurope} size="xl" className='nav__logo-img'/>
                 <h1 className="nav__logo-name">my travel journal.</h1>
             </div>
+            <SwitchButton />
             <div className="nav__actions">
                 <button className="nav__actions-btn" onClick={() => setIsOpen(true)}>
                     <span className='nav__actions-btn-text'>Add</span>

@@ -27,7 +27,8 @@ body {
   --color-text: #f2f2f2;
   --nav-background: #2B283A;
   --main-background: #1b1b1b;
-
+  --primary-input-background: #adadad;
+  --primary-input-color: #212027;
   
 }
 
@@ -41,4 +42,6 @@ body {
   --color-text: #2B283A;
   --nav-background: #384A5D;
   --main-background: #f5f4f4;
+  --primary-input-background: #f2f2f2;
+  --primary-input-color: #2B283A;
 }

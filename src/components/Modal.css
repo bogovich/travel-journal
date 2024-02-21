@@ -53,6 +53,8 @@
     border-radius: 5px;
     border: none;
     outline: 1px solid var(--border-color);
+    background-color: var(--primary-input-background);
+    color: var(--primary-input-color);
 }
 
 .modal-content textarea {
@@ -63,6 +65,8 @@
     border-radius: 5px;
     border: none;
     outline: 1px solid var(--border-color);
+    background-color: var(--primary-input-background);
+    color: var(--primary-input-color);
 }
 
 .modal-background {

@@ -1,7 +1,8 @@
 import './App.css'
 import NavBar from './components/NavBar'
 import MainContent from './components/MainContent'
-import { useState, useEffect, useContext } from 'react'
+import { useReducer, useState, useEffect, useContext } from 'react'
+import entriesReducer from './reducers/entriesReducer'
 import { ThemeContext } from './contexts/theme-context'
 import data from "./data.js"
 import Modal from './components/Modal'
@@ -10,9 +11,11 @@ import Entry from './components/Entry.jsx'
 
 function App() {
 
-  const [entries, setEntries] = useState([]);
+  const initialState = JSON.parse(localStorage.getItem('entries')) || data;
+  const [state, dispatch] = useReducer(entriesReducer, initialState);
   const [entryToUpdate, setEntryToUpdate] = useState({});
   const [isOpen, setIsOpen] = useState(false);
+  const { isDark } = useContext(ThemeContext)
 
   useEffect(() => {
     let storedEntries = JSON.parse(localStorage.getItem('entries'));
@@ -20,38 +23,28 @@ function App() {
       storedEntries = data;
       localStorage.setItem('entries', JSON.stringify(storedEntries));
     }
-    setEntries(storedEntries);
+    dispatch({ type: 'INIT_ENTRIES', entries: storedEntries });
   }, []);
 
   const deleteEntry = (id) => {
-      const entryExists = entries.some(entry => entry.id === id);
-      if (entryExists) {
-          const updatedEntries = entries.filter(entry => entry.id !== id);
-          setEntries(updatedEntries);
-          localStorage.setItem('entries', JSON.stringify(updatedEntries));
-      }
+    dispatch({ type: 'DELETE_ENTRY', id });
   }
 
-   const addEntry = (newEntry) => {
-    const updatedEntries = [...entries, newEntry];
-    setEntries(updatedEntries);
-    localStorage.setItem('entries', JSON.stringify(updatedEntries));
+  const addEntry = (newEntry) => {
+    dispatch({ type: 'ADD_ENTRY', newEntry });
   }
 
   const updateEntry = (id, updatedEntry) => {
-    const updatedEntries = entries.map(entry => entry.id === id ? updatedEntry : entry);
-    setEntries(updatedEntries);
-    localStorage.setItem('entries', JSON.stringify(updatedEntries));
+    dispatch({ type: 'UPDATE_ENTRY', id, updatedEntry });
   }
 
   const handleUpdateEntry = (id) => {
     setIsOpen(true);
-    const entry = entries.find(entry => entry.id === id);
+    const entry = state.find(entry => entry.id === id);
     setEntryToUpdate(entry);
   }
 
-  const { isDark } = useContext(ThemeContext)
-  const entryArray = entries.map((entry) => <Entry key={entry.id} {...entry} onUpdate={handleUpdateEntry} onDelete={deleteEntry}/>);
+  const entryArray = state.map((entry) => <Entry key={entry.id} {...entry} onUpdate={handleUpdateEntry} onDelete={deleteEntry}/>);
 
   return (
     <div className={`theme ${isDark ? 'dark-theme' : 'light-theme'}`}>
